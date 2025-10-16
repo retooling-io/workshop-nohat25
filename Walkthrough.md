@@ -11,9 +11,10 @@ If you want detailed instructions, please proceed to the next page.
 # Analysis of the Dropper: `procmon64` Step 1
 
 1.  **Right-click** the dropper and examine its **properties/description**.
-2.  Start `procmon64` and add a filter where the **Process Name equals `w.exe`**.
-3.  **Execute** the dropper on the **physical host**.
-4.  Filter the `procmon64` log to identify **where the files are dropped and how they are executed**.
+2.  Rename the dropper as `w.exe`
+3.  Start `procmon64` and add a filter where the **Process Name equals `w.exe`**.
+4.  **Execute** the dropper
+5.  Filter the `procmon64` log to identify **where the files are dropped and how they are executed**.
 
 ---
 
@@ -58,7 +59,7 @@ If you want detailed instructions, please proceed to the next page.
 3.  **Add the user to the local administrators group** (optional):
 
     ```cmd
-    net localgroup administrators nohatuser /add
+    net localgroup administrators <username> /add
     ```
 
 4.  **copy the dropped files** into `c:\windows\temp` and **execute the dropper under the new user's credentials**:
