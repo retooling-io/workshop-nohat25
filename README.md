@@ -15,3 +15,4 @@ You'll execute these multi-stage implants within your analysis VM and watch them
 * [System informer](https://systeminformer.sourceforge.io/)
 * [7zip](https://www.7-zip.org/)
 * [procmon (sysinternals) ](https://learn.microsoft.com/en-us/sysinternals/downloads/procmon)
+* [PE-bear](https://github.com/hasherezade/pe-bear)
