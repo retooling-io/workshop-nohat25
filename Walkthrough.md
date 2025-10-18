@@ -10,6 +10,7 @@ If you want detailed instructions, please proceed to the next page.
 
 # Analysis of the Dropper: `procmon64` Step 1
 
+0. Add the folder under the exclusions if you use Windows Defender
 1.  **Right-click** the dropper and examine its **properties/description**.
 2.  Rename the dropper as `w.exe`
 3.  Start `procmon64` and add a filter where the **Process Name equals `w.exe`**.
@@ -56,16 +57,16 @@ If you want detailed instructions, please proceed to the next page.
     net user <username> <pass> /add
     ```
 
-3.  **Add the user to the local administrators group** (optional):
+3.  **Add the user to the local administrators group** :
 
     ```cmd
     net localgroup administrators <username> /add
     ```
 
-4.  **copy the dropped files** into `c:\windows\temp` and **execute the dropper under the new user's credentials**:
+4.  **copy the dropped files** into `c:\Users\nohatuser` and **execute the dropper under the new user's credentials**:
 
     ```powershell
-    cd c:\windows\temp
+    cd c:\Users\nohatuser
     Start-Process powershell.exe -ArgumentList "-Command & { Start-Process msedgewebview4.exe SearchHost.bin }" -Credential (get-credential)
     ```
 
@@ -204,4 +205,4 @@ Key: 24-byte key recovered (hex)
 Input format: Hex (raw ciphertext), e.g. 281a5261479d3d42087515567ec409c3
 ``` 
 
-Decrypt all encrypted blobs. The decrypted outputs reveal stage-2 strings and behavior. One buffer at `0x00007FFC86655450` should be converted to code in IDA (press C).
+Decrypt all the encrypted blobs. The decrypted outputs reveal stage-2 strings and behavior. One buffer at `0x00007FFC86655450` should be converted to code in IDA (press C).
